@@ -6,3 +6,4 @@ seaborn
 imblearn
 plotly
 xgboost
+streamlit
