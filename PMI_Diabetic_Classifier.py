@@ -25,7 +25,7 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier,
 from sklearn.feature_selection import SelectKBest, mutual_info_classif
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
-import kaggle
+# import kaggle
 
 # kaggle.api.authenticate()
 # kaggle.api.dataset_download_files('rohitr4307/pima-indians-diabetes-database', path='./data', unzip=True)
