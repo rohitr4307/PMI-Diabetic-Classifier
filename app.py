@@ -1,3 +1,4 @@
+import numpy as np
 import streamlit as st
 from Prediction import predict
 
