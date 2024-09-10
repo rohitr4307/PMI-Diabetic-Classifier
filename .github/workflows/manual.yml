@@ -39,7 +39,7 @@ jobs:
           chmod 600 ~/.kaggle/kaggle.json
 
       - name: Download Kaggle Dataset
-        run: kaggle datasets download -d kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip  # Replace <owner/dataset> with your dataset path
+        run: kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip  # Corrected command
 
       - name: List downloaded files
         run: ls -la  # Optional: Check downloaded files for debugging
