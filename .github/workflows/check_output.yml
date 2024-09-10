@@ -1,0 +1,2 @@
+- name: List Files in Working Directory
+  run: ls -la
