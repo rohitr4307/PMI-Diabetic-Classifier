@@ -46,8 +46,9 @@ def outlier_treatment(df):
 
     return df
 
+feature_engineering = FunctionTransformer(outlier_treatment, validate=False)
 
-def modeling_pipeline(df, classifier_name, model, scalers, param_grid, train_x, train_y, test_x, test_y, n_spilits=5, scoring='f1'):
+def modeling_pipeline(df, classifier_name, model, scalers, param_grid, train_x, train_y, test_x, test_y, feature_engineering, n_spilits=5, scoring='f1'):
 
     # KFold Stratigies
     cv_strats = {
@@ -112,8 +113,6 @@ def modeling_pipeline(df, classifier_name, model, scalers, param_grid, train_x, 
 train_x, test_x, train_y, test_y = train_test_split(df.drop('Outcome', axis=1), df['Outcome'], train_size=0.8,
                                                     random_state=11, shuffle=True, stratify=df['Outcome'])
 
-feature_engineering = FunctionTransformer(outlier_treatment, validate=False)
-
 # scalers = [MinMaxScaler(), StandardScaler(), RobustScaler()]
 
 # classifiers = {
@@ -151,7 +150,7 @@ param_grid = {
 
 final_result = {}
 for name, model in classifiers.items():
-  results = modeling_pipeline(df, name, model, scalers, {}, train_x, train_y, test_x, test_y, n_spilits=8, scoring='f1')
+  results = modeling_pipeline(df, name, model, scalers, {}, train_x, train_y, test_x, test_y, feature_engineering, n_spilits=8, scoring='f1')
   final_result.update(results)
 
 best_result = list(islice(final_result.items(), 1))[0]
