@@ -16,33 +16,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12.3'  # Replace '3.12.3' with the version you need
+      # - name: Set up Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.12.3'  # Replace '3.12.3' with the version you need
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # - name: Install dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Install Kaggle API
-        run: pip install kaggle
+      # - name: Install Kaggle API
+      #   run: pip install kaggle
 
-      - name: Configure Kaggle API Credentials
-        env:
-          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-        run: |
-          mkdir -p ~/.kaggle
-          echo "{\"username\":\"${KAGGLE_USERNAME}\",\"key\":\"${KAGGLE_KEY}\"}" > ~/.kaggle/kaggle.json
-          chmod 600 ~/.kaggle/kaggle.json
+      # - name: Configure Kaggle API Credentials
+      #   env:
+      #     KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      #     KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      #   run: |
+      #     mkdir -p ~/.kaggle
+      #     echo "{\"username\":\"${KAGGLE_USERNAME}\",\"key\":\"${KAGGLE_KEY}\"}" > ~/.kaggle/kaggle.json
+      #     chmod 600 ~/.kaggle/kaggle.json
 
-      - name: Download Kaggle Dataset
-        run: kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip  # Corrected command
+      # - name: Download Kaggle Dataset
+      #   run: kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip  # Corrected command
 
-      - name: List downloaded files
-        run: ls -la  # Optional: Check downloaded files for debugging
+      # - name: List downloaded files
+      #   run: ls -la  # Optional: Check downloaded files for debugging
 
       - name: Run script
         run: |
@@ -50,4 +50,4 @@ jobs:
 
       - name: Move output
         run: |
-          cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib /workspaces/PMI-Diabetic-Classifier/output/best_model_v1.joblib
+          cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib /output/best_model_v1.joblib
