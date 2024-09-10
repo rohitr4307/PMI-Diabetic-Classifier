@@ -47,3 +47,7 @@ jobs:
       - name: Run script
         run: |
           python PMI_Diabetic_Classifier.py  # Replace with your script name
+
+      - name: Move output
+        run: |
+          cp /workspaces/PMI-Diabetic-Classifier/best_model.joblib /workspaces/PMI-Diabetic-Classifier/output/best_model_v1.joblib
