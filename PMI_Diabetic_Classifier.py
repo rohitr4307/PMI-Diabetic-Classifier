@@ -24,8 +24,13 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier,
 from sklearn.feature_selection import SelectKBest, mutual_info_classif
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
+import kaggle
 
-df = pd.read_csv("/home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/diabetes.csv")
+kaggle.api.authenticate()
+kaggle.api.dataset_download_files('rohitr4307/pima-indians-diabetes-database', path='./data', unzip=True)
+
+
+df = pd.read_csv("./data/diabetes.csv")
 
 def outlier_treatment(df):
 
