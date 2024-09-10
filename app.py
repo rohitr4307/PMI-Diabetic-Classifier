@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from Prediction import predict
-from .PMI_Diabetic_Classifier import outlier_treatment
+from PMI_Diabetic_Classifier import outlier_treatment
 
 st.title("PIMA Female Diabetic Prediction")
 st.markdown(
