@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("PIMA Diabetic Classification")
+st.title("PIMA Female Diabetic Prediction")
 st.markdown(
     '''
     This dataset is originally from the National Institute of Diabetes and Digestive and Kidney Diseases. 
@@ -25,3 +25,5 @@ with col2:
     input_num8 = st.number_input("Age (>19): ", value=30, min_value=20)
 
 st.button("Predict Diabetic")
+
+
