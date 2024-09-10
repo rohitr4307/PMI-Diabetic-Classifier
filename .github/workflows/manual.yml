@@ -39,16 +39,33 @@ jobs:
           chmod 600 ~/.kaggle/kaggle.json
 
       - name: Download Kaggle Dataset
-        run: kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip  # Corrected command
+        run: kaggle datasets download -d uciml/pima-indians-diabetes-database --unzip --path ./data
 
       - name: List downloaded files
-        run: ls -la  # Optional: Check downloaded files for debugging
+        run: ls -la ./data  # Optional: Check downloaded files for debugging
 
       - name: Run script
         run: |
           python PMI_Diabetic_Classifier.py  # Replace with your script name
 
-      - name: Move output
+      - name: Commit and Push Kaggle Files to GitHub
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*
+          git commit -m "Add Kaggle downloaded files from workflow"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push Output to GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p output  # Ensure the output directory exists
           cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib output/best_model_v1.joblib
-          ls -la output
+          git add output/best_model_v1.joblib
+          git commit -m "Add best_model_v1.joblib generated from workflow"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
