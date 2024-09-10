@@ -29,5 +29,3 @@ with col2:
 if st.button("Predict Diabetic"):
     result = predict(np.array([[input_num1, input_num2, input_num3, input_num4, input_num5, input_num6, input_num7, input_num8]]))
     st.text(result[0])
-
-
