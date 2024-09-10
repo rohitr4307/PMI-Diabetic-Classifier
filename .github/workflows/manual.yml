@@ -50,4 +50,5 @@ jobs:
 
       - name: Move output
         run: |
-          cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib /output/best_model_v1.joblib
+          cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib output/best_model_v1.joblib
+          ls -la output
