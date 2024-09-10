@@ -33,4 +33,8 @@ if st.button("Predict Diabetic"):
                             columns=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction',
                                     'Age'])
     result = predict(df)
-    st.text(result[0])
+
+    if result[0] == 1:
+        st.text("Subject is Diabetic!!!")
+    else:
+        st.text("Subject is Non-Diabetic!!!")
