@@ -33,7 +33,7 @@ from xgboost import XGBClassifier
 
 # df = pd.read_csv("D:\Training\BIA\Excel\diabetes.csv")
 
-df = df = pd.read_csv("diabetes.csv")
+df = pd.read_csv("/home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/diabetes.csv")
 
 def outlier_treatment(df):
 
