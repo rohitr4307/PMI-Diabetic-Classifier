@@ -1,5 +1,5 @@
 import joblib
 
 def predict(data):
-    clf = joblib.load("/home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib")
+    clf = joblib.load("output/best_model_v1.joblib")
     return clf.predict(data)
