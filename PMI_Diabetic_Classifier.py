@@ -8,6 +8,7 @@ from plotly.subplots import make_subplots
 import plotly.express as px
 from itertools import islice
 from joblib import dump, load
+from Prediction import predict
 # 
 import warnings
 warnings.filterwarnings('ignore')
@@ -26,11 +27,13 @@ from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 import kaggle
 
-kaggle.api.authenticate()
-kaggle.api.dataset_download_files('rohitr4307/pima-indians-diabetes-database', path='./data', unzip=True)
+# kaggle.api.authenticate()
+# kaggle.api.dataset_download_files('rohitr4307/pima-indians-diabetes-database', path='./data', unzip=True)
 
 
-df = pd.read_csv("./data/diabetes.csv")
+# df = pd.read_csv("D:\Training\BIA\Excel\diabetes.csv")
+
+df = df = pd.read_csv("/home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/diabetes.csv")
 
 def outlier_treatment(df):
 
@@ -163,3 +166,8 @@ best_model = best_result[1]['best_model']
 pred_score = best_result[1]['test_pred']
 
 dump(best_model, 'best_model.joblib')
+
+# test = pd.DataFrame(data=[[2, 200, 250, 20, 100, 30, 0.5, 30]], columns=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
+#       'BMI', 'DiabetesPedigreeFunction', 'Age'])
+# print(test.columns)
+# print("Output", predict(test)[0])

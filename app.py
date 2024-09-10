@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import streamlit as st
 from Prediction import predict
 
@@ -27,5 +28,8 @@ with col2:
     input_num8 = st.number_input("Age (>19): ", value=30, min_value=20)
 
 if st.button("Predict Diabetic"):
-    result = predict(np.array([[input_num1, input_num2, input_num3, input_num4, input_num5, input_num6, input_num7, input_num8]]))
+    df = test = pd.DataFrame(data=[[input_num1, input_num2, input_num3, input_num4, input_num5, input_num6, input_num7, input_num8]],
+                            columns=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction',
+                                    'Age'])
+    result = predict(df)
     st.text(result[0])
