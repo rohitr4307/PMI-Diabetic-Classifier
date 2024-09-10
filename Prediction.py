@@ -1,6 +1,6 @@
 import joblib
 import numpy as np
-from PMI_Diabetic_Classifier import outlier_treatment
+# from .PMI_Diabetic_Classifier import outlier_treatment
 
 
 
