@@ -1,4 +1,5 @@
 import streamlit as st
+from Prediction import predict
 
 st.title("PIMA Female Diabetic Prediction")
 st.markdown(
@@ -24,6 +25,8 @@ with col2:
     input_num7 = st.number_input("Diabetic Pedigree Function: ", value=0.5)
     input_num8 = st.number_input("Age (>19): ", value=30, min_value=20)
 
-st.button("Predict Diabetic")
+if st.button("Predict Diabetic"):
+    result = np.array([[input_num1, input_num2, input_num3, input_num4, input_num5, input_num6, input_num7, input_num8]])
+    st.text(result[0])
 
 
