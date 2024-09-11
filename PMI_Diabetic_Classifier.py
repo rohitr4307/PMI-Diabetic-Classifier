@@ -158,6 +158,7 @@ param_grid = {
 
 final_result = {}
 for name, model in classifiers.items():
+  print(f'{model} is running.')
   results = modeling_pipeline(df, name, model, scalers, param_grid, train_x, train_y, test_x, test_y, feature_engineering, n_spilits=8, scoring='f1')
   final_result.update(results)
 
