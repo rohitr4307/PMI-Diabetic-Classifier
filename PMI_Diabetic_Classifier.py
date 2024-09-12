@@ -166,7 +166,7 @@ best_result = list(islice(final_result.items(), 1))[0]
 best_model = best_result[1]['best_model']
 pred_score = best_result[1]['test_pred']
 
-dump(best_model, 'best_model.joblib')
+dump(best_model, 'output/best_model.joblib')
 
 # test = pd.DataFrame(data=[[2, 200, 250, 20, 100, 30, 0.5, 30]], columns=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin',
 #       'BMI', 'DiabetesPedigreeFunction', 'Age'])
