@@ -64,9 +64,8 @@ jobs:
           # git config --global user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p output  # Ensure the output directory exists
           cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib output/best_model_v1.joblib
-          git add output/best_model_v1.joblib
-          git add /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib
-          # git commit -m "Add best_model_v1.joblib generated from workflow" || echo "No changes to commit"
+          git add .
+          git commit -m "Add best_model_v1.joblib generated from workflow" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
