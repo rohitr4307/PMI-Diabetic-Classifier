@@ -62,6 +62,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add best_model.joblib
+          git commit -m "Add best_model.joblib generated from workflow"
           mkdir -p output  # Ensure the output directory exists
           cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib output/best_model_v1.joblib
           git add output/best_model_v1.joblib
