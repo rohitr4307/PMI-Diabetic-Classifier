@@ -51,7 +51,7 @@ jobs:
       - name: Commit and Push Kaggle Files to GitHub
         run: |
           git config --global user.name "github-actions[bot]"
-          # git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/*
           git commit -m "Add Kaggle downloaded files from workflow"
           git push
@@ -61,7 +61,7 @@ jobs:
       - name: Commit and Push Output to GitHub
         run: |
           git config --global user.name "github-actions[bot]"
-          # git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p output  # Ensure the output directory exists
           cp /home/runner/work/PMI-Diabetic-Classifier/PMI-Diabetic-Classifier/best_model.joblib output/best_model_v1.joblib
           git add .
